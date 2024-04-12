@@ -40,6 +40,11 @@ const Quiz = () => {
           </div>
         </div>
       )}
+      {quizState.attemptedNextWithoutAnswer && (
+        <div className="message">
+          Please select an answer before moving to the next question.
+        </div>
+      )}
     </div>
   );
 };

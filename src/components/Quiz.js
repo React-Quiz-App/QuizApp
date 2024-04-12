@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { QuizContext } from '../contexts/quiz';
 import Question from './Question';
-
+import { useNavigate } from 'react-router-dom';
 const Quiz = () => {
   const [quizState, dispatch] = useContext(QuizContext);
-  console.log(quizState);
+  const navigate = useNavigate();
   return (
     <div className="quiz">
       {quizState.showResults && (
@@ -16,10 +16,7 @@ const Quiz = () => {
               You got {quizState.correctAnswerCount} out of{' '}
               {quizState.questions.length} right.
             </div>
-            <div
-              className="next-button"
-              onClick={() => dispatch({ type: 'RESTART' })}
-            >
+            <div className="next-button" onClick={() => navigate('/')}>
               Restart
             </div>
           </div>

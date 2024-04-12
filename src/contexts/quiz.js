@@ -3,16 +3,17 @@ import questions from '../data';
 import { shuffleAnswers, shuffleQuestions } from '../utils';
 
 const initialState = {
-  questions: shuffleQuestions(questions),
+  categories: ['CSS', 'Travel'],
+  selectedCategory: null,
+  questions: [],
   currentQuestionIndex: 0,
   showResults: false,
   correctAnswerCount: 0,
-  answers: shuffleAnswers(questions[0]),
+  answers: [],
   currentAnswer: '',
   attemptedNextWithoutAnswer: false,
 };
 const reducer = (state, action) => {
-  console.log('reducer', state, action);
   switch (action.type) {
     case 'NEXT_QUESTION': {
       if (state.currentAnswer === '') {
@@ -39,9 +40,6 @@ const reducer = (state, action) => {
         attemptedNextWithoutAnswer,
       };
     }
-    case 'RESTART': {
-      return { ...initialState, questions: shuffleQuestions(questions) };
-    }
     case 'SELECT_ANSWER': {
       const attemptedNextWithoutAnswer = false;
       const correctAnswerCount =
@@ -54,6 +52,25 @@ const reducer = (state, action) => {
         currentAnswer: action.payload,
         correctAnswerCount,
         attemptedNextWithoutAnswer,
+      };
+    }
+    case 'SELECT_CATEGORY': {
+      const selectedCategory = action.payload;
+      const filteredQuestions = questions.filter(
+        (question) => question.category === selectedCategory
+      );
+      const shuffledQuestions = shuffleQuestions(filteredQuestions);
+
+      return {
+        ...state,
+        selectedCategory,
+        questions: shuffledQuestions,
+        currentQuestionIndex: 0,
+        showResults: false,
+        correctAnswerCount: 0,
+        answers: shuffleAnswers(shuffledQuestions[0]),
+        currentAnswer: '',
+        attemptedNextWithoutAnswer: false,
       };
     }
     default:

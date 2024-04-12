@@ -3,10 +3,15 @@ import 'regenerator-runtime/runtime';
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import Root from './components/Root';
+import Quiz from './components/Quiz';
+import { QuizProvider } from './contexts/quiz';
 
 const App = () => {
-  return <Root />;
+  return (
+    <QuizProvider>
+      <Quiz />
+    </QuizProvider>
+  );
 };
 
 const root = createRoot(document.getElementById('app'));

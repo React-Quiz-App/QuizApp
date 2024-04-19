@@ -9,6 +9,7 @@ const initialState = {
   currentQuestionIndex: 0,
   showResults: false,
   correctAnswerCount: 0,
+  scoreCount: 0,
   answers: [],
   currentAnswer: '',
   attemptedNextWithoutAnswer: false,
@@ -42,16 +43,19 @@ const reducer = (state, action) => {
     }
     case 'SELECT_ANSWER': {
       const attemptedNextWithoutAnswer = false;
-      const correctAnswerCount =
+      const isCorrect =
         action.payload ===
-        state.questions[state.currentQuestionIndex].correctAnswer
-          ? state.correctAnswerCount + 1
-          : state.correctAnswerCount;
+        state.questions[state.currentQuestionIndex].correctAnswer;
+      const correctAnswerCount = isCorrect
+        ? state.correctAnswerCount + 1
+        : state.correctAnswerCount;
+      const scoreCount = isCorrect ? state.scoreCount + 5 : state.scoreCount;
       return {
         ...state,
         currentAnswer: action.payload,
         correctAnswerCount,
         attemptedNextWithoutAnswer,
+        scoreCount,
       };
     }
     case 'SELECT_CATEGORY': {
@@ -68,6 +72,7 @@ const reducer = (state, action) => {
         currentQuestionIndex: 0,
         showResults: false,
         correctAnswerCount: 0,
+        scoreCount: 0,
         answers: shuffleAnswers(shuffledQuestions[0]),
         currentAnswer: '',
         attemptedNextWithoutAnswer: false,

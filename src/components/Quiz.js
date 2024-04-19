@@ -16,6 +16,7 @@ const Quiz = () => {
               You got {quizState.correctAnswerCount} out of{' '}
               {quizState.questions.length} right.
             </div>
+            <div>Score: {quizState.scoreCount}</div>
             <div className="next-button" onClick={() => navigate('/')}>
               Restart
             </div>
@@ -27,6 +28,7 @@ const Quiz = () => {
           <div className="score">
             Question {quizState.currentQuestionIndex + 1} /{' '}
             {quizState.questions.length}
+            &nbsp;|&nbsp; Score: {quizState.scoreCount}
           </div>
           <Question />
           <div

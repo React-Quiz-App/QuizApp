@@ -1,21 +1,53 @@
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  background-color: #e4e4e4;
+  background-color: 212A3E;
+  color: rgba(241, 246, 249, 0.7);
 }
 
 div {
   box-sizing: border-box;
 }
 
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+}
+
+#category-card {
+  width: 12.5rem;
+  margin: 0.625rem;
+  background-color: #394867;
+  border: 0.0625rem solid white;
+}
+
+#category-img {
+  height: 8.75rem;
+}
+
+.card-text {
+  color: F1F6F9;
+}
+
+#basic-button {
+  color: #0094da;
+}
+
+#basic-button:hover {
+  font-size: large;
+}
+
 .quiz {
   width: 975px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 20rem;
 }
 
 .question {
-  background-color: #0094da;
+  background-color: 394867;
   color: white;
   padding: 10px;
   min-height: 60px;
@@ -25,14 +57,14 @@ div {
   font-size: 24px;
 }
 
-.results {
-  background-color: #fff;
-  height: 300px;
+#results {
+  height: 400px;
   text-align: center;
+  border: 0.0625rem solid white;
 }
 
 .congratulations {
-  background-color: #0094da;
+  background-color: 394867;
   padding: 20px;
   font-size: 36px;
   color: #fff;
@@ -46,12 +78,13 @@ div {
 
 .answer {
   width: 48%;
-  background: #fff;
-  border: 2px solid #0094da;
+  background: 394867;
+  border: 2px solid dimgray;
   min-height: 70px;
   cursor: pointer;
   margin-bottom: 30px;
   display: flex;
+  color: #fff;
 }
 
 .answers {
@@ -63,7 +96,7 @@ div {
 
 .answer-letter {
   font-size: 30px;
-  background-color: #0084da;
+  background-color: 474F7A;
   color: #fff;
   width: 70px;
   display: flex;
@@ -96,8 +129,9 @@ div {
 
 .next-button {
   margin: 0 auto;
+  margin-top: 20px;
   color: #fff;
-  background: #0b0e21;
+  background-color: 394867;
   width: 300px;
   font-size: 18px;
   font-weight: 600;
@@ -108,17 +142,16 @@ div {
 }
 
 .score {
-  background: #fff;
-  color: 000;
-  font-size: 18px;
-  width: 200px;
-  margin: 0 auto;
-  font-weight: 600;
+  width: 300px;
   height: 40px;
-  margin-bottom: 30px;
+  margin: 0 auto;
+  margin-bottom: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: 394867;
+  border: 0.0625rem solid white;
+  color: F1F6F9;
 }
 
 .disabled-answer {

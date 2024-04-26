@@ -2,17 +2,19 @@ import React, { createContext, useReducer } from 'react';
 import questions from '../data';
 import { shuffleAnswers, shuffleQuestions } from '../utils';
 
+const storedIndex = localStorage.getItem('currentQuestionIndex');
+const initialIndex = storedIndex !== null ? parseInt(storedIndex, 10) : 0;
+
 const initialState = {
   categories: ['CSS', 'Travel'],
   selectedCategory: null,
   questions: [],
-  currentQuestionIndex: 0,
+  currentQuestionIndex: initialIndex,
   showResults: false,
   correctAnswerCount: 0,
   scoreCount: 0,
   answers: [],
   currentAnswer: '',
-  attemptedNextWithoutAnswer: false,
 };
 const reducer = (state, action) => {
   switch (action.type) {
@@ -20,10 +22,8 @@ const reducer = (state, action) => {
       if (state.currentAnswer === '') {
         return {
           ...state,
-          attemptedNextWithoutAnswer: true,
         };
       }
-      const attemptedNextWithoutAnswer = false;
       const showResults =
         state.currentQuestionIndex === state.questions.length - 1;
       const currentQuestionIndex = showResults
@@ -38,11 +38,9 @@ const reducer = (state, action) => {
         showResults,
         answers,
         currentAnswer: '',
-        attemptedNextWithoutAnswer,
       };
     }
     case 'SELECT_ANSWER': {
-      const attemptedNextWithoutAnswer = false;
       const isCorrect =
         action.payload ===
         state.questions[state.currentQuestionIndex].correctAnswer;
@@ -54,7 +52,6 @@ const reducer = (state, action) => {
         ...state,
         currentAnswer: action.payload,
         correctAnswerCount,
-        attemptedNextWithoutAnswer,
         scoreCount,
       };
     }
@@ -75,13 +72,11 @@ const reducer = (state, action) => {
         scoreCount: 0,
         answers: shuffleAnswers(shuffledQuestions[0]),
         currentAnswer: '',
-        attemptedNextWithoutAnswer: false,
       };
     }
     default:
-      state;
+      return state;
   }
-  return state;
 };
 
 export const QuizContext = createContext();

@@ -1,92 +1,172 @@
 const data = [
   {
-    category: 'CSS',
-    question: 'What does CSS stand for?',
-    incorrectAnswers: [
-      'Computer Style Sheets',
-      'Creative Style Sheets',
-      'Colorful Style Sheets',
-    ],
-    correctAnswer: 'Cascading Style Sheets',
-  },
-
-  {
-    category: 'CSS',
-    question:
-      'Where in an HTML document is the correct place to refer to an external style sheet?',
-    incorrectAnswers: [
-      'In the <body> section',
-      'At the end of the document',
-      "You can't refer to an external style sheet",
-    ],
-    correctAnswer: 'In the <head> section',
+    category: 'Art',
+    question: 'Who painted the famous artwork \'Starry Night\'?',
+    incorrectAnswers: ['Pablo Picasso', 'Salvador Dali', 'Leonardo da Vinci'],
+    correctAnswer: 'Vincent van Gogh'
   },
   {
-    category: 'CSS',
-    question: 'Which HTML tag is used to define an internal style sheet?',
-    incorrectAnswers: ['<script>', '<headStyle>', '<css>'],
-    correctAnswer: '<style>',
+    category: 'Art',
+    question: 'Who composed the \'Moonlight Sonata\'?',
+    incorrectAnswers: ['Wolfgang Amadeus Mozart', 'Johann Sebastian Bach', 'Richard Wagner'],
+    correctAnswer: 'Ludwig van Beethoven'
   },
   {
-    category: 'CSS',
-    question: 'Which HTML attribute is used to define inline styles?',
-    incorrectAnswers: ['class', 'font', 'styles'],
-    correctAnswer: 'style',
+    category: 'Art',
+    question: 'What is the name of the famous Italian opera house?',
+    incorrectAnswers: ['The Metropolitan Opera', 'Sydney Opera House', 'Royal Opera House, Covent Garden'],
+    correctAnswer: 'La Scala'
   },
   {
-    category: 'CSS',
-    question: 'Which is the correct CSS syntax?',
-    incorrectAnswers: [
-      '{body:color=black;}',
-      '{body;color:black;}',
-      'body:color=black;',
-    ],
-    correctAnswer: 'body {color: black;}',
+    category: 'Art',
+    question: 'Who is considered the \'King of Pop\'?',
+    incorrectAnswers: ['Elvis Presley', 'John Lennon', 'David Bowie'],
+    correctAnswer: 'Michael Jackson'
   },
   {
-    category: 'CSS',
-    question: 'How do you insert a comment in a CSS file?',
-    incorrectAnswers: [
-      "' this is a comment",
-      '// this is a comment',
-      '// this is a comment //',
-    ],
-    correctAnswer: '/* this is a comment */',
+    category: 'Art',
+    question: 'Who painted the Mona Lisa?',
+    incorrectAnswers: ['Pablo Picasso', 'Vincent van Gogh', 'Leonardo da Vinci'],
+    correctAnswer: 'Leonardo da Vinci'
   },
   {
-    category: 'CSS',
-    question: 'Which property is used to change the background color?',
-    incorrectAnswers: ['color', 'bgcolor', 'bgColor'],
-    correctAnswer: 'background-color',
+    category: 'Art',
+    question: 'What instrument did legendary musician Jimi Hendrix famously play?',
+    incorrectAnswers: ['Violin', 'Piano', 'Drums'],
+    correctAnswer: 'Electric Guitar'
   },
   {
-    category: 'CSS',
-    question: 'How do you add a background color for all <h1> elements?',
-    incorrectAnswers: [
-      'all.h1 {background-color:#FFFFFF;}',
-      'h1.setAll {background-color:#FFFFFF;}',
-      'h1.all {background-color:#FFFFFF;}',
-    ],
-    correctAnswer: 'h1 {background-color:#FFFFFF;}',
+    category: 'Art',
+    question: 'Who is the lead vocalist of the band Queen?',
+    incorrectAnswers: ['John Lennon', 'Freddie Mercury', 'Bono'],
+    correctAnswer: 'Freddie Mercury'
   },
   {
     category: 'Travel',
     question: 'Which city is known as the "City of Love"?',
     incorrectAnswers: ['London', 'New York', 'Warsaw'],
-    correctAnswer: 'Paris',
+    correctAnswer: 'Paris'
   },
   {
     category: 'Travel',
     question: 'Which country is known for the Great Barrier Reef?',
     incorrectAnswers: ['Mexico', 'France', 'Brazil'],
-    correctAnswer: 'Australia',
+    correctAnswer: 'Australia'
   },
   {
     category: 'Travel',
     question: 'What is the capital city of Spain?',
     incorrectAnswers: ['Barcelona', 'Rome', 'Lisbon'],
-    correctAnswer: 'Madrid',
+    correctAnswer: 'Madrid'
   },
+  {
+    category: 'Travel',
+    question: 'In which country would you find the ancient city of Machu Picchu?',
+    incorrectAnswers: ['Brazil', 'Colombia', 'Argentina'],
+    correctAnswer: 'Peru'
+  },
+  {
+    category: 'Travel',
+    question: 'What is the currency of Japan?',
+    incorrectAnswers: ['Yuan', 'Baht', 'Rupee'],
+    correctAnswer: 'Yen'
+  },
+  {
+    category: 'Travel',
+    question: 'What is the tallest mountain in Africa?',
+    incorrectAnswers: ['Mount Kenya', 'Mount Everest', 'Mount Fuji'],
+    correctAnswer: 'Mount Kilimanjaro'
+  },
+  {
+    category: 'Travel',
+    question: 'Which continent is known as the "Land Down Under"?',
+    incorrectAnswers: ['Africa', 'Europe', 'Asia'],
+    correctAnswer: 'Australia'
+  },
+  {
+    category: 'General',
+    question: 'Who painted the Mona Lisa?',
+    incorrectAnswers: ['Vincent van Gogh', 'Pablo Picasso', 'Michelangelo'],
+    correctAnswer: 'Leonardo da Vinci'
+  },
+  {
+    category: 'General',
+    question: 'What is the chemical symbol for water?',
+    incorrectAnswers: ['CO2', 'O3', 'NaCl'],
+    correctAnswer: 'H2O'
+  },
+  {
+    category: 'General',
+    question: 'What is the largest planet in our solar system?',
+    incorrectAnswers: ['Earth', 'Venus', 'Mars'],
+    correctAnswer: 'Jupiter'
+  },
+  {
+    category: 'General',
+    question: 'What is the tallest mammal in the world?',
+    incorrectAnswers: ['Elephant', 'Hippopotamus', 'Rhinoceros'],
+    correctAnswer: 'Giraffe'
+  },
+  {
+    category: 'General',
+    question: 'Who is known as the father of modern physics?',
+    incorrectAnswers: ['Johannes Kepler', 'Galileo Galilei', 'Albert Einstein'],
+    correctAnswer: 'Sir Isaac Newton'
+  },
+  {
+    category: 'General',
+    question: 'Which planet is known as the "Red Planet"?',
+    incorrectAnswers: ['Venus', 'Jupiter', 'Saturn'],
+    correctAnswer: 'Mars'
+  },
+  {
+    category: 'General',
+    question: 'Who wrote the play \'Romeo and Juliet\'?',
+    incorrectAnswers: ['Charles Dickens', 'Jane Austen', 'Mark Twain'],
+    correctAnswer: 'William Shakespeare'
+  },
+  {
+    category: 'Food',
+    question: 'Which fruit is known as the \'king of fruits\'?',
+    incorrectAnswers: ['Banana', 'Apple', 'Orange'],
+    correctAnswer: 'Durian'
+  },
+  {
+    category: 'Food',
+    question: 'Which country is famous for its Swiss cheese?',
+    incorrectAnswers: ['France', 'Italy', 'Germany'],
+    correctAnswer: 'Switzerland'
+  },
+  {
+    category: 'Food',
+    question: 'What is the primary ingredient in hummus?',
+    incorrectAnswers: ['Avocado', 'Tomato', 'Potato'],
+    correctAnswer: 'Chickpeas'
+  },
+  {
+    category: 'Food',
+    question: 'What type of pasta has the shape of small rice grains?',
+    incorrectAnswers: ['Fettuccine', 'Ravioli', 'Spaghetti'],
+    correctAnswer: 'Orzo'
+  },
+  {
+    category: 'Food',
+    question: 'What is the main ingredient in a traditional Greek moussaka?',
+    incorrectAnswers: ['Pasta', 'Potatoes', 'Rice'],
+    correctAnswer: 'Eggplant'
+  },
+  {
+    category: 'Food',
+    question: 'What is the national dish of Spain?',
+    incorrectAnswers: ['Sushi', 'Burger', 'Pasta'],
+    correctAnswer: 'Paella'
+  },
+  {
+    category: 'Food',
+    question: 'What is the national drink of Japan?',
+    incorrectAnswers: ['Tea', 'Coffee', 'Sake'],
+    correctAnswer: 'Green Tea'
+  }
 ];
 
 export default data;

@@ -6,7 +6,7 @@ const storedIndex = localStorage.getItem('currentQuestionIndex');
 const initialIndex = storedIndex !== null ? parseInt(storedIndex, 10) : 0;
 
 const initialState = {
-  categories: ['CSS', 'Travel'],
+  categories: ['Art', 'Travel', 'Food', 'General'],
   selectedCategory: null,
   questions: [],
   currentQuestionIndex: initialIndex,

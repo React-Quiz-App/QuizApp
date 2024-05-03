@@ -17,10 +17,11 @@ const HomePage = () => {
   };
 
   const categoryImages = {
-    CSS: '/favicon.ico',
-    Travel: '/travel.jpg',
+    Art: 'images/art.jpeg',
+    Travel: 'images/travel.jpg',
+    Food: 'images/food.jpeg',
+    General: 'images/general.jpeg'
   };
-
   return (
     <div>
       <h1>Welcome to the Quiz App</h1>

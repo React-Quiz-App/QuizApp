@@ -19,7 +19,7 @@ const Quiz = () => {
             🎊 Congratulations 🎊
           </Typography>
           <div className="results-info">
-            <div>You have completed the quiz.</div>
+            <div>You have completed the quiz!</div>
             <div>
               You got {quizState.correctAnswerCount} out of{' '}
               {quizState.questions.length} right.

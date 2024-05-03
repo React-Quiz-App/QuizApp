@@ -4,12 +4,20 @@ import Answer from './Answer';
 
 const Question = () => {
   const [quizState, dispatch] = useContext(QuizContext);
-  const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
+  let currentQuestion = quizState.questions[quizState.currentQuestionIndex];
+  if (!currentQuestion) {
+    let questions = JSON.parse(localStorage.getItem('STORED_QUESTIONS'));
+    currentQuestion = questions[quizState.currentQuestionIndex];
+  }
+  let answers = quizState.answers;
+  if (!answers || answers.length === 0) {
+    answers = currentQuestion.incorrectAnswers.concat(currentQuestion.correctAnswer);
+  }
   return (
     <div>
       <div className="question">{currentQuestion.question}</div>
       <div className="answers">
-        {quizState.answers.map((answer, index) => (
+        {answers.map((answer, index) => (
           <Answer
             answerText={answer}
             key={index}

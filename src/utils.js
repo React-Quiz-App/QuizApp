@@ -11,11 +11,8 @@ export const shuffleAnswers = (question) => {
   }
   const unshuffledAnswers = [
     question.correctAnswer,
-    ...question.incorrectAnswers,
+    ...question.incorrectAnswers
   ];
   return shuffleArray(unshuffledAnswers);
 };
 
-export const shuffleQuestions = (questions) => {
-  return shuffleArray(questions);
-};

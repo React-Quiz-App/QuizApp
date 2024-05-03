@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import questions from '../data';
-import { shuffleAnswers, shuffleQuestions } from '../utils';
+import { shuffleAnswers } from '../utils';
 
 const storedIndex = localStorage.getItem('currentQuestionIndex');
 const initialIndex = storedIndex !== null ? parseInt(storedIndex, 10) : 0;
@@ -14,36 +14,45 @@ const initialState = {
   correctAnswerCount: 0,
   scoreCount: 0,
   answers: [],
-  currentAnswer: '',
+  currentAnswer: ''
 };
 const reducer = (state, action) => {
   switch (action.type) {
     case 'NEXT_QUESTION': {
       if (state.currentAnswer === '') {
         return {
-          ...state,
+          ...state
         };
       }
+      let questions = state.questions;
+      if (!questions || questions.length === 0) {
+        questions = JSON.parse(localStorage.getItem('STORED_QUESTIONS'));
+      }
       const showResults =
-        state.currentQuestionIndex === state.questions.length - 1;
+        state.currentQuestionIndex === questions.length - 1;
+
       const currentQuestionIndex = showResults
         ? state.currentQuestionIndex
         : state.currentQuestionIndex + 1;
       const answers = showResults
         ? []
-        : shuffleAnswers(state.questions[currentQuestionIndex]);
+        : shuffleAnswers(questions[currentQuestionIndex]);
       return {
         ...state,
         currentQuestionIndex,
         showResults,
         answers,
-        currentAnswer: '',
+        currentAnswer: ''
       };
     }
     case 'SELECT_ANSWER': {
+      let questions = state.questions;
+      if (!questions || questions.length === 0) {
+        questions = JSON.parse(localStorage.getItem('STORED_QUESTIONS'));
+      }
       const isCorrect =
         action.payload ===
-        state.questions[state.currentQuestionIndex].correctAnswer;
+        questions[state.currentQuestionIndex].correctAnswer;
       const correctAnswerCount = isCorrect
         ? state.correctAnswerCount + 1
         : state.correctAnswerCount;
@@ -52,26 +61,26 @@ const reducer = (state, action) => {
         ...state,
         currentAnswer: action.payload,
         correctAnswerCount,
-        scoreCount,
+        scoreCount
       };
     }
     case 'SELECT_CATEGORY': {
       const selectedCategory = action.payload;
+      setLocalStorageItem('SELECTED_CATEGORY', selectedCategory);
       const filteredQuestions = questions.filter(
         (question) => question.category === selectedCategory
       );
-      const shuffledQuestions = shuffleQuestions(filteredQuestions);
-
+      setLocalStorageItem('STORED_QUESTIONS', JSON.stringify(filteredQuestions));
       return {
         ...state,
         selectedCategory,
-        questions: shuffledQuestions,
+        questions: filteredQuestions,
         currentQuestionIndex: 0,
         showResults: false,
         correctAnswerCount: 0,
         scoreCount: 0,
-        answers: shuffleAnswers(shuffledQuestions[0]),
-        currentAnswer: '',
+        answers: shuffleAnswers(filteredQuestions[0]),
+        currentAnswer: ''
       };
     }
     default:
@@ -85,3 +94,6 @@ export const QuizProvider = ({ children }) => {
   const value = useReducer(reducer, initialState);
   return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;
 };
+
+const setLocalStorageItem = (key, value) => localStorage.setItem(key, value);
+

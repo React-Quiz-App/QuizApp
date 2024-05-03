@@ -8,11 +8,9 @@ import Typography from '@mui/material/Typography';
 const Quiz = () => {
   const [quizState, dispatch] = useContext(QuizContext);
   const navigate = useNavigate();
-
   const handleRestartSameCategory = () => {
     dispatch({ type: 'SELECT_CATEGORY', payload: quizState.selectedCategory });
   };
-
   return (
     <div className="quiz">
       {quizState.showResults && (

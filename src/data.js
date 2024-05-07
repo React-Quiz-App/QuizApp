@@ -26,7 +26,7 @@ const data = [
   {
     category: 'Art',
     question: 'Who painted the Mona Lisa?',
-    incorrectAnswers: ['Pablo Picasso', 'Vincent van Gogh', 'Leonardo da Vinci'],
+    incorrectAnswers: ['Pablo Picasso', 'Vincent van Gogh', 'Claude Monet'],
     correctAnswer: 'Leonardo da Vinci'
   },
   {
@@ -38,7 +38,7 @@ const data = [
   {
     category: 'Art',
     question: 'Who is the lead vocalist of the band Queen?',
-    incorrectAnswers: ['John Lennon', 'Freddie Mercury', 'Bono'],
+    incorrectAnswers: ['John Lennon', 'George Michael', 'Bono'],
     correctAnswer: 'Freddie Mercury'
   },
   {

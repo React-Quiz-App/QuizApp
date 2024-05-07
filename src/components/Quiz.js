@@ -15,7 +15,7 @@ const Quiz = () => {
     <div className="quiz">
       {quizState.showResults && (
         <Card id="results">
-          <Typography level="title-lg" className="congratulations">
+          <Typography level="title-lg" id="congratulations">
             🎊 Congratulations 🎊
           </Typography>
           <div className="results-info">
